@@ -5,6 +5,16 @@ new Vue({
         newEntry:"",
         todoList: []
     },
+    watch:{
+        todoList: {
+            handler: function(newTodos){
+                sessionStorage.setItem('my-todo-list',JSON.stringify(newTodos));
+            },
+            deep: true
+        }
+
+    },
+
     methods: {
         addEntry: function(){
             if(this.newEntry){
