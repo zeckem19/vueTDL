@@ -11,7 +11,14 @@
 <body>
     <div id="app">
         <h1> My To Do List</h1>
-        <input type = "text" name="entry" v-model="newEntry">
+        <input type="text" name="entry" v-model="newEntry" v-on:keyup.enter="addEntry">
+        <div class="items">
+            <div class="item" v-for="(entry, index) in todoList">
+                <input type="checkbox" name="isDone" v-model="entry.isDone">
+                {{entry.value}}
+                <a class="close" v-on:click="removeEntry">X</a>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="assets/javascripts/lib/vue.js"></script>
     <script type="text/javascript" src="assets/javascripts/index.js"></script>
